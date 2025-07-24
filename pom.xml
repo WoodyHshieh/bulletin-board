@@ -92,6 +92,14 @@
 	    <artifactId>javax.el</artifactId>
 	    <version>2.2.6</version>
 	</dependency>
+	
+	<!-- 上傳檔案 -->
+	<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.4</version>
+	</dependency>
+
 
     <!-- Bootstrap（在前端直接引用 CDN） -->
   </dependencies>

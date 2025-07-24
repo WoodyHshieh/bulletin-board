@@ -9,51 +9,86 @@ import java.util.Date;
 @Table(name = "posts")
 public class Post {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-    @NotBlank(message = "標題不能為空")
-    private String title;
+	@NotBlank(message = "標題不能為空")
+	private String title;
 
-    @Column(name = "publish_date")
-    @Temporal(TemporalType.DATE)
-    private Date publishDate;
+	@Column(name = "publish_date")
+	@Temporal(TemporalType.DATE)
+	private Date publishDate;
 
-    @NotNull(message = "截止日期不能為空")
-    @Column(name = "end_date")
-    @Temporal(TemporalType.DATE)
-    private Date endDate;
+	@NotNull(message = "截止日期不能為空")
+	@Column(name = "end_date")
+	@Temporal(TemporalType.DATE)
+	private Date endDate;
 
-    @NotBlank(message = "公告者不能為空")
-    private String author;
+	@NotBlank(message = "公告者不能為空")
+	private String author;
 
-    @NotBlank(message = "公告內容不能為空")
-    @Column(columnDefinition = "TEXT")
-    private String content;
+	@NotBlank(message = "公告內容不能為空")
+	@Column(columnDefinition = "TEXT")
+	private String content;
 
-    // Getters and Setters
-    public int getId() { return id; }
+	private String filePath;
 
-    public void setId(int id) { this.id = id; }
+	// Getters and Setters
+	public int getId() {
+		return id;
+	}
 
-    public String getTitle() { return title; }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setTitle(String title) { this.title = title; }
+	public String getTitle() {
+		return title;
+	}
 
-    public Date getPublishDate() { return publishDate; }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public void setPublishDate(Date publishDate) { this.publishDate = publishDate; }
+	public Date getPublishDate() {
+		return publishDate;
+	}
 
-    public Date getEndDate() { return endDate; }
+	public void setPublishDate(Date publishDate) {
+		this.publishDate = publishDate;
+	}
 
-    public void setEndDate(Date endDate) { this.endDate = endDate; }
+	public Date getEndDate() {
+		return endDate;
+	}
 
-    public String getAuthor() { return author; }
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
 
-    public void setAuthor(String author) { this.author = author; }
+	public String getAuthor() {
+		return author;
+	}
 
-    public String getContent() { return content; }
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
-    public void setContent(String content) { this.content = content; }
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
 }

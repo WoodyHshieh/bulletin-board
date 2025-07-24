@@ -28,7 +28,13 @@
                 <td>${post.publishDate}</td>
                 <td>${post.endDate}</td>
                 <td>${post.author}</td>
-                <td>${post.content}</td>  
+                <td>
+                    ${post.content}
+                    <c:if test="${not empty post.filePath}">
+                        <br/>
+                        <img src="${pageContext.request.contextPath}/${post.filePath}" width="150" alt="附件圖片"/>
+                    </c:if>
+                </td>  
                 <td><a href="posts/edit?id=${post.id}" class="btn btn-sm btn-warning">修改</a></td>
                 <td><a href="posts/delete?id=${post.id}" class="btn btn-sm btn-danger">刪除</a></td>
             </tr>

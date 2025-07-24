@@ -10,34 +10,46 @@
 </head>
 <body class="container mt-4">
     <h2>新增公告</h2>
-    <form:form action="${pageContext.request.contextPath}/posts/add" modelAttribute="post" method="post">
+    <form:form action="${pageContext.request.contextPath}/posts/add" 
+               modelAttribute="post" method="post"
+               enctype="multipart/form-data"> <!-- 讓表單支援檔案上傳 -->
+               
         <div class="mb-3">
             <form:label path="title">標題：</form:label>
             <form:input path="title" cssClass="form-control"/>
             <form:errors path="title" cssClass="text-danger"/>
         </div>
+
         <div class="mb-3">
             <form:label path="endDate">截止日期：</form:label>
             <form:input path="endDate" cssClass="form-control" type="date"/>
             <form:errors path="endDate" cssClass="text-danger"/>
         </div>
+
         <div class="mb-3">
             <form:label path="author">公告者：</form:label>
             <form:input path="author" cssClass="form-control"/>
             <form:errors path="author" cssClass="text-danger"/>
         </div>
+
         <div class="mb-3">
-		    <form:label path="content">公告內容：</form:label>
-		    <form:textarea path="content" cssClass="form-control" id="editor" rows="5"/>
-		    <form:errors path="content" cssClass="text-danger"/>
-		</div>
+            <form:label path="content">公告內容：</form:label>
+            <form:textarea path="content" cssClass="form-control" id="editor" rows="5"/>
+            <form:errors path="content" cssClass="text-danger"/>
+        </div>
+
+        <div class="mb-3">
+            <label for="file">上傳附件：</label>
+            <input type="file" name="file" class="form-control"/>
+        </div>
+
         <button type="submit" class="btn btn-success">送出</button>
         <a href="${pageContext.request.contextPath}/posts" class="btn btn-secondary">返回</a>
     </form:form>
-    
+
     <script>
- 		// 啟動 CKEditor
-    	CKEDITOR.replace('editor');
-	</script>	
+        // 啟動 CKEditor
+        CKEDITOR.replace('editor');
+    </script>	
 </body>
 </html>

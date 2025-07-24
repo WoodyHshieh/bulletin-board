@@ -14,6 +14,9 @@
   <!-- 啟用註解式 Controller -->
   <mvc:annotation-driven />
 
+  <!-- ✅ 釋放靜態資源，讓 /uploads 下的圖片可以被訪問 -->
+  <mvc:resources mapping="/uploads/**" location="/uploads/" />
+
   <!-- 掃描 Controller 的位置 -->
   <context:component-scan base-package="com.example.controller" />
 
@@ -22,4 +25,11 @@
     <property name="prefix" value="/WEB-INF/views/" />
     <property name="suffix" value=".jsp" />
   </bean>
+
+  <!-- 上傳檔案解析器 -->
+  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="defaultEncoding" value="UTF-8"/>
+    <property name="maxUploadSize" value="5242880"/> <!-- 5MB -->
+  </bean>
+
 </beans>
