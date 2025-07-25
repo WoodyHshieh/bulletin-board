@@ -4,6 +4,7 @@
 <head>
     <title>公告列表</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body class="container mt-4">
     <h2>公告列表</h2>
@@ -35,7 +36,7 @@
                         <img src="${pageContext.request.contextPath}/${post.filePath}" width="150" alt="附件圖片"/>
                     </c:if>
                 </td>  
-                <td><a href="posts/edit?id=${post.id}" class="btn btn-sm btn-warning">修改</a></td>
+                <td><a href="posts/edit?id=${post.id}" class="btn btn-sm btn-primary">修改</a></td>
                 <td><a href="posts/delete?id=${post.id}" class="btn btn-sm btn-danger">刪除</a></td>
             </tr>
         </c:forEach>

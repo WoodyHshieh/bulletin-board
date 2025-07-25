@@ -14,8 +14,10 @@
   <!-- 啟用註解式 Controller -->
   <mvc:annotation-driven />
 
-  <!-- ✅ 釋放靜態資源，讓 /uploads 下的圖片可以被訪問 -->
+  <!-- 釋放靜態資源，讓 /uploads 下的圖片可以被訪問 -->
   <mvc:resources mapping="/uploads/**" location="/uploads/" />
+  
+  <mvc:resources mapping="/resources/**" location="/resources/" />
 
   <!-- 掃描 Controller 的位置 -->
   <context:component-scan base-package="com.example.controller" />

@@ -5,10 +5,11 @@
 <head>
     <title>新增公告</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
     <!-- 編輯器API -->
     <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 </head>
-<body class="container mt-4">
+<body class="container mt-4 bulletin-box">
     <h2>新增公告</h2>
     <form:form action="${pageContext.request.contextPath}/posts/add" 
                modelAttribute="post" method="post"
