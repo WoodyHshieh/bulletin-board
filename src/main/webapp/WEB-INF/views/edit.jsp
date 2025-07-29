@@ -35,11 +35,15 @@
         </div>
         <div class="mb-3">
             <form:label path="content">公告內容：</form:label>
-            <form:textarea path="content" cssClass="form-control" rows="5"/>
+            <form:textarea path="content" cssClass="form-control" id="editor" rows="5"/>
             <form:errors path="content" cssClass="text-danger"/>
         </div>
         <button type="submit" class="btn btn-primary">修改</button>
         <a href="${pageContext.request.contextPath}/posts" class="btn btn-secondary">返回</a>
     </form:form>
+    <script>
+        // 啟動 CKEditor
+        CKEDITOR.replace('editor');
+    </script>	
 </body>
 </html>
