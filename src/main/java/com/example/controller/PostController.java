@@ -87,10 +87,35 @@ public class PostController {
     @PostMapping("/update")
     public String updatePost(@ModelAttribute("post") @Valid Post post,
                              BindingResult result,
+                             @RequestParam("file") MultipartFile file,   // 接收新檔案
+                             HttpServletRequest request,
                              Model model) {
         if (result.hasErrors()) {
-            return "edit"; // 有錯誤回到編輯頁面
+            return "edit"; 
         }
+
+        if (!file.isEmpty()) {
+            try {
+                String uploadDir = request.getServletContext().getRealPath("/uploads/");
+                File dir = new File(uploadDir);
+                if (!dir.exists()) dir.mkdirs();
+
+                String fileName = file.getOriginalFilename();
+                File serverFile = new File(uploadDir + File.separator + fileName);
+                file.transferTo(serverFile);
+
+                // 更新為新檔案
+                post.setFilePath("uploads/" + fileName);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            // 沒有新檔案則保留舊檔案
+            Post oldPost = postService.findById(post.getId());
+            post.setFilePath(oldPost.getFilePath());
+        }
+
         postService.update(post);
         return "redirect:/posts";
     }
